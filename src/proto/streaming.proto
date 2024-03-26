@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package streaming;
+
+option go_package = "go-proto/";
+
+message Request {
+	int32 id=1;
+}
+
+message Response {
+	string result=1;
+}
+
+service StreamingService{
+	rpc Fetch(Request)returns(stream Response){}
+}
